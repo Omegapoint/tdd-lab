@@ -24,9 +24,18 @@ public class BasketTest {
         // When
         basket.addCandy(candy);
 
-
         // Then
         assertThat(basket.getNumberOfItems()).isEqualTo(1);
+    }
+
+    @Test
+    public void basket_contains_correct_candy() {
+        Basket basket = new Basket();
+        Candy candy = new Candy("Marabou 200g!");
+
+        basket.addCandy(candy);
+
+        assertThat(basket.contains(candy)).isTrue();
     }
 
 }

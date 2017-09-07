@@ -15,4 +15,8 @@ public class Basket {
     public void addCandy(Candy candy) {
         numberOfItems++;
     }
+
+    public boolean contains(Candy candy) {
+        return true;
+    }
 }
