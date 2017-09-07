@@ -7,35 +7,45 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class BasketTest {
 
+    private Basket basket;
+
     @Test
     public void basket_is_empty_when_new() {
-        Basket basket = new Basket();
+        givenEmptyBasket();
 
-        assertThat(basket.getNumberOfItems()).isEqualTo(0);
+        thenBasketSizeIs(0);
+    }
+
+    private void thenBasketSizeIs(int expected) {
+        assertThat(basket.getNumberOfItems()).isEqualTo(expected);
     }
 
 
     @Test
     public void basket_has_candy() {
         // Given
-        Basket basket = new Basket();
+        givenEmptyBasket();
         Candy candy = new Candy("Kexchoklad");
 
         // When
-        basket.addCandy(candy);
+        whenAddingCandy(candy);
 
         // Then
-        assertThat(basket.getNumberOfItems()).isEqualTo(1);
+        thenBasketSizeIs(1);
+    }
+
+    private void whenAddingCandy(Candy candy) {
+        basket.addCandy(candy);
     }
 
     @Test
     public void basket_contains_correct_candy() {
         // Given
-        Basket basket = new Basket();
+        givenEmptyBasket();
         Candy candy = new Candy("Marabou 200g!");
 
         // When
-        basket.addCandy(candy);
+        whenAddingCandy(candy);
 
         // Then
         assertThat(basket.contains(candy)).isTrue();
@@ -45,15 +55,20 @@ public class BasketTest {
     @Test
     public void basket_does_not_contains_unadded_candy() {
         // Given
-        Basket basket = new Basket();
+        givenEmptyBasket();
         Candy candy = new Candy("Testchoklad");
 
         // When
 
         // Then
         assertThat(basket.contains(candy)).isFalse();
-
     }
+
+    private void givenEmptyBasket() {
+        basket = new Basket();
+    }
+
+
 
 
 }
