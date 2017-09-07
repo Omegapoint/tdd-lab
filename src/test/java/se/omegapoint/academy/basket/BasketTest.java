@@ -30,12 +30,30 @@ public class BasketTest {
 
     @Test
     public void basket_contains_correct_candy() {
+        // Given
         Basket basket = new Basket();
         Candy candy = new Candy("Marabou 200g!");
 
+        // When
         basket.addCandy(candy);
 
+        // Then
         assertThat(basket.contains(candy)).isTrue();
     }
+
+
+    @Test
+    public void basket_does_not_contains_unadded_candy() {
+        // Given
+        Basket basket = new Basket();
+        Candy candy = new Candy("Testchoklad");
+
+        // When
+
+        // Then
+        assertThat(basket.contains(candy)).isFalse();
+
+    }
+
 
 }

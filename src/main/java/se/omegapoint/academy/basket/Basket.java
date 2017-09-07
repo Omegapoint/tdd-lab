@@ -14,9 +14,10 @@ public class Basket {
     }
     public void addCandy(Candy candy) {
         numberOfItems++;
+        items.add(candy);
     }
 
     public boolean contains(Candy candy) {
-        return true;
+        return items.contains(candy);
     }
 }
