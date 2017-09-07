@@ -1,13 +1,20 @@
 package se.omegapoint.academy.basket;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import se.omegapoint.academy.basket.items.Candy;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(MockitoJUnitRunner.class)
 public class BasketTest {
 
     private Basket basket;
+    @Mock
+    private Logger logger;
 
     @Test
     public void basket_is_empty_when_new() {
@@ -27,7 +34,7 @@ public class BasketTest {
         Candy candy = new Candy("Kexchoklad");
 
         whenAddingCandy(candy);
-        
+
         thenBasketSizeIs(1);
     }
 
@@ -53,9 +60,21 @@ public class BasketTest {
 
         assertThat(basket.contains(candy)).isFalse();
     }
+    @Test
+    public void candy_has_been_logged() {
+        givenEmptyBasket();
+        Candy candy = new Candy("Japp");
+
+        whenAddingCandy(candy);
+
+        Mockito.verify(logger).add(candy);
+    }
+
+
+
 
     private void givenEmptyBasket() {
-        basket = new Basket(new ConsoleLogger());
+        basket = new Basket(logger);
     }
 
 
