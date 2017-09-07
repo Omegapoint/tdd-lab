@@ -23,14 +23,11 @@ public class BasketTest {
 
     @Test
     public void basket_has_candy() {
-        // Given
         givenEmptyBasket();
         Candy candy = new Candy("Kexchoklad");
 
-        // When
         whenAddingCandy(candy);
-
-        // Then
+        
         thenBasketSizeIs(1);
     }
 
@@ -40,32 +37,25 @@ public class BasketTest {
 
     @Test
     public void basket_contains_correct_candy() {
-        // Given
         givenEmptyBasket();
         Candy candy = new Candy("Marabou 200g!");
 
-        // When
         whenAddingCandy(candy);
 
-        // Then
         assertThat(basket.contains(candy)).isTrue();
     }
 
 
     @Test
     public void basket_does_not_contains_unadded_candy() {
-        // Given
         givenEmptyBasket();
         Candy candy = new Candy("Testchoklad");
 
-        // When
-
-        // Then
         assertThat(basket.contains(candy)).isFalse();
     }
 
     private void givenEmptyBasket() {
-        basket = new Basket();
+        basket = new Basket(new ConsoleLogger());
     }
 
 
