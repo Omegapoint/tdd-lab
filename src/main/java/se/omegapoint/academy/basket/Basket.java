@@ -1,6 +1,7 @@
 package se.omegapoint.academy.basket;
 
 import se.omegapoint.academy.basket.items.Candy;
+import se.omegapoint.academy.basket.items.Magazine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,14 @@ public class Basket {
         logger.add(candy);
     }
 
-    public boolean contains(Candy candy) {
-        return items.contains(candy);
+    public void addMagazine(Magazine mag) {
+        numberOfItems++;
+        items.add(mag);
+        logger.add(mag);
+    }
+
+    public boolean contains(Item item) {
+        return items.contains(item);
     }
 
 

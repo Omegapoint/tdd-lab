@@ -6,6 +6,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import se.omegapoint.academy.basket.items.Candy;
+import se.omegapoint.academy.basket.items.Magazine;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -70,8 +71,29 @@ public class BasketTest {
         Mockito.verify(logger).add(candy);
     }
 
+    @Test
+    public void magazine_has_been_logged() {
+        givenEmptyBasket();
+        Magazine mag = new Magazine("Japp");
+        Magazine mag3 = new Magazine("Japp");
+
+        basket.addMagazine(mag);
 
 
+        Mockito.verify(logger).add(mag);
+        Mockito.verify(logger).add(mag3);
+    }
+
+
+    @Test
+    public void basketHasMagazine() {
+        givenEmptyBasket();
+        Magazine mag = new Magazine("Guns n ammo");
+
+        basket.addMagazine(mag);
+
+        assertThat(basket.contains(mag)).isTrue();
+    }
 
     private void givenEmptyBasket() {
         basket = new Basket(logger);
