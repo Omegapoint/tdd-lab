@@ -3,10 +3,25 @@ package se.omegapoint.academy.basket.receipt;
 import se.omegapoint.academy.basket.Item;
 import se.omegapoint.academy.basket.Logger;
 
-public class ReceiptLogger implements Logger {
+import java.util.ArrayList;
+import java.util.List;
 
+public class ReceiptLogger implements Logger {
+    public List<Item> addedItems = new ArrayList<>();
+    InnerClass innerClass  = new InnerClass();
+
+    public class InnerClass {
+        public InnerClass(){
+            System.out.println("InnerClassConstructor");
+        }
+    }
+    public ReceiptLogger(){
+        System.out.println("Receiptloggerkonstruktor");
+        InnerClass innerClass  = new InnerClass();
+    }
     public void add(final Item item) {
         executeSomeReallyExpensiveStuff();
+        addedItems.add(item);
     }
 
     @Override
