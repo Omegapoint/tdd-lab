@@ -196,7 +196,6 @@ layout: false
 ]
 
 ---
-
 layout: false
 .left-column[
   ## Varför?
@@ -214,6 +213,86 @@ layout: false
 ]
 
 ---
+
+layout: false
+.left-column[
+  ## JUnit - ett exempel
+]
+Se exempelkoden
+
+---
+
+layout: false
+.left-column[
+  ## Mobbprogrammering
+]
+    - 1 Förare, många navigatörer
+    - Växla förare ~10 minuter
+    - Man får säga pass!
+    - Man får gå ut och ta paus
+    - Kom ihåg turtagande och hänsyn.
+
+---
+
+    Övning, session 1.
+
+---
+
+    paus
+
+---
+
+    Demo: nu slår vi upp priserna, men vad händer dååååå???
+
+---
+
+layout: false
+.left-column[
+  ## Dubbelgångare
+]
+.right-column[
+Vad är dom bra för?
+
+   - Hemmagjorda
+
+   - Mock
+
+   - Spy
+
+]
+
+---
+
+layout: false
+.left-column[
+  ## Mockito exempel
+]
+.right-column[
+Typisk användning:
+
+    verify(mockedObject).someMethodYouExpectToBeCalled(expectedArguments)
+Skapa mock, alternativ 1:
+
+    Collaborator collaborator = mock(Collaborator.class)
+Skapa mock, alternativ 2:
+
+    @RunWith(MockitoJUnitRunner.class)
+    public class MyClassTest {
+
+        @Mock
+        private Collaborator collaborator;
+
+    }
+
+Sätta upp beteende:
+
+    when(collaborator.uppercase("abcd")).thenReturn("ABCD");
+
+Lathund: https://dzone.com/refcardz/mockito
+]
+
+---
+
 
 layout: false
 .left-column[
@@ -322,52 +401,6 @@ layout: false
 
 ---
 
-layout: false
-.left-column[
-  ## Dubbelgångare
-]
-.right-column[
-Vad är dom bra för?
-
-   - Hemmagjorda
-
-   - Mock
-
-   - Spy
-
-]
-
----
-
-layout: false
-.left-column[
-  ## Mockito exempel
-]
-.right-column[
-Typisk användning:
-
-    verify(mockedObject).someMethodYouExpectToBeCalled(expectedArguments)
-Skapa mock, alternativ 1:
-
-    Collaborator collaborator = mock(Collaborator.class)
-Skapa mock, alternativ 2:
-
-    @RunWith(MockitoJUnitRunner.class)
-    public class MyClassTest {
-
-        @Mock
-        private Collaborator collaborator;
-
-    }
-
-Sätta upp beteende:
-
-    when(collaborator.uppercase("abcd")).thenReturn("ABCD");
-
-Lathund: https://dzone.com/refcardz/mockito
-]
-
----
 
 
 layout: false
