@@ -8,6 +8,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.net.URI;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -18,22 +19,28 @@ public class CollaborationWithAnnotations {
     @Mock
     private HttpClient httpClient;
 
-    private TestSubject testSubject;
+    private HealthChecker healthChecker;
+
 
     @Before
-    public void setupCollaborator() {
+    public void setupHealthChecker() {
+        healthChecker = new HealthChecker(httpClient);
+    }
+
+    @Test
+    public void isHealthy_should_return_true() {
+        // given
         when(httpClient.get(any())).thenReturn("OK");
+
+        // when
+        assertThat(healthChecker.isHealthy()).isTrue();
     }
 
-    @Before
-    public void setupTestSubject() {
-        testSubject = new TestSubject(httpClient);
-    }
 
     @Test
     public void isHealthy_should_get_healthcheck() {
         // when
-        testSubject.isHealthy();
+        healthChecker.isHealthy();
 
         // then
         verify(httpClient).get(URI.create("/healthcheck"));

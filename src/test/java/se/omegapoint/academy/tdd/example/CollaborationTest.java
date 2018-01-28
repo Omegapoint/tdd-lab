@@ -14,7 +14,7 @@ public class CollaborationTest {
 
     private final HttpClient httpClient = mock(HttpClient.class);
 
-    private final TestSubject testSubject = new TestSubject(httpClient);
+    private final HealthChecker healthChecker = new HealthChecker(httpClient);
 
     @Before
     public void setupCollaborator() {
@@ -24,7 +24,7 @@ public class CollaborationTest {
     @Test
     public void isHealthy_should_get_healthcheck() {
         // when
-        testSubject.isHealthy();
+        healthChecker.isHealthy();
 
         // then
         verify(httpClient).get(URI.create("/healthcheck"));
