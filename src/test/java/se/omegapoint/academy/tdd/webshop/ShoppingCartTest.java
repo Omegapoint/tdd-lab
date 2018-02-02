@@ -4,13 +4,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static se.omegapoint.academy.tdd.webshop.Items.BRUN_BANAN;
+import static se.omegapoint.academy.tdd.webshop.Items.JOLT;
+import static se.omegapoint.academy.tdd.webshop.Items.KEXCHOKLAD;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ShoppingCartTest {
@@ -22,9 +26,9 @@ public class ShoppingCartTest {
 
     @Before
     public void setup() {
-        Mockito.when(pricingService.priceForItem(1)).thenReturn(BigDecimal.valueOf(14));
-        Mockito.when(pricingService.priceForItem(4)).thenReturn(BigDecimal.valueOf(7));
-        Mockito.when(pricingService.priceForItem(6)).thenReturn(new BigDecimal("14.50"));
+        when(pricingService.priceForItem(1)).thenReturn(BigDecimal.valueOf(14));
+        when(pricingService.priceForItem(4)).thenReturn(BigDecimal.valueOf(7));
+        when(pricingService.priceForItem(6)).thenReturn(new BigDecimal("14.50"));
     }
 
     @Test
@@ -40,7 +44,7 @@ public class ShoppingCartTest {
     public void cart_has_one_item() {
         givenEmptyShoppingCart();
 
-        whenAddingItems(Items.BRUN_BANAN);
+        whenAddingItems(BRUN_BANAN);
 
         thenCartHasItemCount(1);
 
@@ -50,7 +54,7 @@ public class ShoppingCartTest {
     public void cart_has_several_items() {
         givenEmptyShoppingCart();
 
-        whenAddingItems(Items.BRUN_BANAN, Items.JOLT, Items.KEXCHOKLAD);
+        whenAddingItems(BRUN_BANAN, JOLT, KEXCHOKLAD);
 
         thenCartHasItemCount(3);
 
@@ -72,11 +76,26 @@ public class ShoppingCartTest {
         givenEmptyShoppingCart();
 
         //when
-        whenAddingItems(Items.BRUN_BANAN,Items.JOLT,Items.KEXCHOKLAD);
+        whenAddingItems(BRUN_BANAN, JOLT, KEXCHOKLAD);
 
         //then
         assertThat(shoppingCart.getTotalPrice()).isEqualTo(new BigDecimal("35.50"));
 
+    }
+
+    @Test
+    public void looking_up_prices_in_pricing_service(){
+        //given
+        givenEmptyShoppingCart();
+
+        //when
+        whenAddingItems(BRUN_BANAN, JOLT, KEXCHOKLAD);
+        shoppingCart.getTotalPrice();
+
+        //then
+        verify(pricingService).priceForItem(BRUN_BANAN.getItemId());
+        verify(pricingService).priceForItem(JOLT.getItemId());
+        verify(pricingService).priceForItem(KEXCHOKLAD.getItemId());
     }
 
     private void whenAddingItems(Item... items) {
