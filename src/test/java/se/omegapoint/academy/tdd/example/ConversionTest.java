@@ -26,6 +26,6 @@ public class ConversionTest {
         final Collection<String> lowercaselist = converter.toLowerCase(strings);
 
         // then
-        assertThat(lowercaselist).contains("hej");
+        assertThat(lowercaselist).containsExactlyInAnyOrder("hej");
     }
 }
