@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
+    private final PricingService pricingService;
     private final List<Item> items = new ArrayList<>();
 
-    public ShoppingCart(){}
+    public ShoppingCart(PricingService pricingService){
+        this.pricingService = pricingService;
+    }
 
     public int getNumberOfItems() {
         return items.size();
@@ -20,7 +23,7 @@ public class ShoppingCart {
     public BigDecimal getTotalPrice() {
         BigDecimal sum = BigDecimal.valueOf(0);
         for(Item item : items) {
-            sum = sum.add(item.getPrice());
+            sum = sum.add(pricingService.priceForItem(item.getItemId()));
         }
         return sum;
     }
