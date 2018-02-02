@@ -1,8 +1,8 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -19,13 +19,9 @@ public class CollaborationWithAnnotationsTest {
     @Mock
     private HttpClient httpClient;
 
+    @InjectMocks
     private HealthChecker healthChecker;
 
-
-    @Before
-    public void setupHealthChecker() {
-        healthChecker = new HealthChecker(httpClient);
-    }
 
     @Test
     public void isHealthy_should_return_true() {

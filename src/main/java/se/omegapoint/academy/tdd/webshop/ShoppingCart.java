@@ -8,6 +8,11 @@ public class ShoppingCart {
 
     private int numberOfItems = 0;
     private List<Item> items = new ArrayList<>();
+    private PricingService pricingService;
+
+    public ShoppingCart(PricingService pricingService) {
+        this.pricingService = pricingService;
+    }
 
     public int count() {
         return numberOfItems;
@@ -21,10 +26,7 @@ public class ShoppingCart {
     public BigDecimal getTotalPrice() {
 
         return items.stream()
-                .map(i -> i.getPrice())
+                .map(i -> pricingService.priceForItem(i.getItemId()))
                 .reduce(BigDecimal.ZERO, (first, second) -> first.add(second));
-
-        // return BigDecimal.ZERO;
-
     }
 }
