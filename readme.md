@@ -42,7 +42,7 @@ Varukorgen ska kunna visas i ett användargränssnitt.
 
 - Antalet varor i korgen
 - Totala priset för alla varor i korgen.
-- En lista
+- En lista med beskrivningar; namn och pris
 
 ## Paus 
 
