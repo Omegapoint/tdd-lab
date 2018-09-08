@@ -10,22 +10,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConversionTest {
 
-    private LowerCaseConverter converter;
+    private LowerCaseConverter lowerCaseConverter;
 
     @Before
-    public void setupList() {
-        converter = new LowerCaseConverter();
+    public void setupLowerCaseConverter() {
+        lowerCaseConverter = new LowerCaseConverter();
     }
 
     @Test
     public void can_convert_to_lower_case() {
         // given
-        Collection<String> strings = Collections.singletonList("HEJ");
+        final Collection<String> strings = Collections.singletonList("HEJ");
 
         // when
-        final Collection<String> lowercaselist = converter.toLowerCase(strings);
+        final Collection<String> lowercaselist = lowerCaseConverter.toLowerCase(strings);
 
         // then
-        assertThat(lowercaselist).contains("hej");
+        assertThat(lowercaselist).containsExactly("hej");
     }
 }
