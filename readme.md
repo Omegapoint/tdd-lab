@@ -1,11 +1,16 @@
-# Basket
+# TDD 101 - labbar
+
 Denna kodbas utgör basen i labbarna i TDD-kursen. Innehållet är avsiktligt knapphändigt då respektive deltagare förväntas utöka koden i varje labbmoment.
 
-## Förväntningar
+## Kursprogram
+
+Ungefär såhär brukar vi lägga upp kursen.
+
+### Förväntningar
 
 Samla in förväntningar.
 
-## Vad är TDD?
+### Vad är TDD?
 
 Test Driven Design
 
@@ -16,7 +21,7 @@ Test Driven Design
 - Ändra och kontrollera att testet inte fallerar
 - Börja från början så länge man kan komma på nya egenskaper.
 
-## Varför?
+### Varför?
 
 - Var snäll mot dig själv i framtiden!
 - Specifikation.
@@ -24,11 +29,11 @@ Test Driven Design
 - Tvingar fram en enkel lösning.
 - Små steg.
 
-## Junit exempel
+### Junit exempel
 
 Se ConversionTest.
 
-## Mobbprogrammering
+### Mobbprogrammering
  
  - En förare, många navigatörer.
  - Byt förare ungefär var 10e minut.
@@ -36,7 +41,7 @@ Se ConversionTest.
  - Man får gå ut och ta paus.
  - Kom ihåg turtagande och hänsyn.
  
-## Övning
+### Övning 1 
 
 Varukorgen ska kunna visas i ett användargränssnitt.
 
@@ -44,11 +49,11 @@ Varukorgen ska kunna visas i ett användargränssnitt.
 - Totala priset för alla varor i korgen.
 - En lista med beskrivningar; namn och pris
 
-## Paus 
+### Paus 
 
-## Miniretro - vad har vi lärt oss?
+### Miniretro - vad har vi lärt oss?
 
-## Verktyg
+### Några verktyg
 
 - Testkörare: 
     - <b>JUnit</b>
@@ -62,24 +67,24 @@ Varukorgen ska kunna visas i ett användargränssnitt.
     - Hamcrest
     - Junit
 
-## Introducera 'Lyckliga zonen' och 'Den hemska världen därute'
+### Introducera 'Lyckliga zonen' och 'Den hemska världen därute'
 
 Lösning: Dubbelgångare
 
-## Mockito exempel
+### Mockito exempel
 
 Se CollaborationTest.
 
-## Övning 2: Introducera en kollaboratör
+### Övning 2: Introducera en kollaboratör
 
 Se till att priser slås upp med hjälp av prissättningstjänsten.
 Vad händer?
 
 - Verifiera att priser hämtas från prissättningstjänsten.
  
-## Återsamling, återblick:
+### Återsamling, återblick:
 
-## Verktyg (igen)
+### Fler verktyg
 
 - Dubbelgångare
     - <b>Mockito</b>
@@ -87,9 +92,9 @@ Vad händer?
     - Powermock
     - Spock (groovy)
     
-## Lite generellt om testning om någon undrar 
+### Lite generellt om testning om någon undrar 
 
-### Testpyramiden
+#### Testpyramiden
 - Enhet
 - Integration
 - Funktion
@@ -98,19 +103,19 @@ Vad händer?
 - System
 - Prestanda
 
-### Egenskaper
+#### Egenskaper
 - Exekveringstid
 - Målgrupp
 - Stabilitet
 - Beroenden
 
-### Andra metoder och sätt
+#### Andra metoder och sätt
 - BDD: Behaviour-Driven Development
 - ATDD: Acceptance Test Driven Development
 - Property based testing
 - Mutation testing
  
-## Referenser
+## Referenser - för den nyfikne
 
 - Video: tifrån och in - TDD för bättre design och tidigare feedback - Thomas Nilefalk: https://www.youtube.com/watch?v=8bUrjHWlDMY
 - Blog: TestPyramid - Martin Fowler: https://martinfowler.com/bliki/TestPyramid.html
