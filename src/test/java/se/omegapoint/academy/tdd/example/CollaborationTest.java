@@ -23,6 +23,13 @@ public class CollaborationTest {
     }
 
     @Test
+    public void testHealthCheck() {
+        final HealthChecker healthChecker = new HealthChecker(new HttpClient());
+        
+        assertThat(healthChecker.isHealthy()).isTrue();
+    }
+
+    @Test
     public void isHealthy_should_return_true() {
         // given
         when(httpClient.get(any())).thenReturn("OK");
@@ -30,7 +37,7 @@ public class CollaborationTest {
         // when
         assertThat(healthChecker.isHealthy()).isTrue();
     }
-    
+
     @Test
     public void isHealthy_should_get_healthcheck() {
         // when
