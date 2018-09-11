@@ -22,12 +22,6 @@ public class CollaborationTest {
         when(httpClient.get(any())).thenReturn("OK");
     }
 
-    @Test
-    public void testHealthCheck() {
-        final HealthChecker healthChecker = new HealthChecker(new HttpClient());
-        
-        assertThat(healthChecker.isHealthy()).isTrue();
-    }
 
     @Test
     public void isHealthy_should_return_true() {

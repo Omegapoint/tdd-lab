@@ -8,6 +8,12 @@ public class ShoppingCart {
 
     private int numberOfItems = 0;
     private BigDecimal balance = BigDecimal.valueOf(0);
+    private final PricingService pricingService;
+
+    public ShoppingCart(PricingService pricingService) {
+        this.pricingService = pricingService;
+    }
+
 
     public int getNumberOfItems() {
         return numberOfItems;
@@ -15,7 +21,7 @@ public class ShoppingCart {
 
     public void add(Item item) {
         numberOfItems++;
-        balance = balance.add(item.getPrice());
+        balance = balance.add(pricingService.priceForItem(item.getItemId()));
     }
 
     public BigDecimal getBalance() {
