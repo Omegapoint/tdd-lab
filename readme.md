@@ -46,6 +46,8 @@ Varukorgen ska kunna visas i ett användargränssnitt.
 
 ## Paus 
 
+## Miniretro - vad har vi lärt oss?
+
 ## Verktyg
 
 - Testkörare: 
@@ -60,25 +62,23 @@ Varukorgen ska kunna visas i ett användargränssnitt.
     - Hamcrest
     - Junit
 
-## Introducera en kollaboratör
+## Introducera 'Lyckliga zonen' och 'Den hemska världen därute'
+
+Lösning: Dubbelgångare
+
+## Mockito exempel
+
+Se CollaborationTest.
+
+## Övning 2: Introducera en kollaboratör
 
 Se till att priser slås upp med hjälp av prissättningstjänsten.
 Vad händer?
 
-## Dubbelgångare
-
-Att ersätt kollaböratörer med 
-med någon form av dubbelgångare för att slippa eller 
-begränsa beroenden.
-
-## Mockito exempel
-
-Se CollaborationWithAnnotationsTest.
-
-## Övning 2
-
 - Verifiera att priser hämtas från prissättningstjänsten.
  
+## Återsamling, återblick:
+
 ## Verktyg (igen)
 
 - Dubbelgångare
@@ -86,8 +86,10 @@ Se CollaborationWithAnnotationsTest.
     - Easymock
     - Powermock
     - Spock (groovy)
+    
+## Lite generellt om testning om någon undrar 
 
-## Testpyramiden
+### Testpyramiden
 - Enhet
 - Integration
 - Funktion
@@ -96,25 +98,17 @@ Se CollaborationWithAnnotationsTest.
 - System
 - Prestanda
 
-## Egenskaper
+### Egenskaper
 - Exekveringstid
 - Målgrupp
 - Stabilitet
 - Beroenden
 
-## Andra metoder och sätt
+### Andra metoder och sätt
 - BDD: Behaviour-Driven Development
 - ATDD: Acceptance Test Driven Development
 - Property based testing
 - Mutation testing
-
-## Extra övningar
-
-
-
-## Junit 5
-
-## Återblick
  
 ## Referenser
 
