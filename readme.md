@@ -122,6 +122,7 @@ Vad händer?
 - Blog: Integrated tests are a scam - J.B. Rainsberger
 http://blog.thecodewhisperer.com/permalink/integrated-tests-are-a-scam
 - Bok: Growing object-oriented software guided by tests: http://www.adlibris.com/se/bok/growing-object-oriented-software-guided-by-tests-9780321503626
+- Bok: https://pragprog.com/book/utj2/pragmatic-unit-testing-in-java-8-with-junit
 
 
 
