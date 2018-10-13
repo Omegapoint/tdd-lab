@@ -8,7 +8,7 @@ Ungefär såhär brukar vi lägga upp kursen.
 
 ### Förväntningar
 
-Samla in förväntningar.
+Samla in förväntningar!
 
 ### Vad är TDD?
 
