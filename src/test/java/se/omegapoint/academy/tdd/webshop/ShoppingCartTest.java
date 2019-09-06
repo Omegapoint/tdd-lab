@@ -73,6 +73,17 @@ public class ShoppingCartTest {
         //then
         assertThat(sumOfItems).isEqualTo(new BigDecimal(7));
     }
+    @Test
+    public void shopping_cart_calls_pricing_service(){
 
+        //given
+        ShoppingCart shoppingCart = new ShoppingCart(pricingService);
+
+        //when
+        shoppingCart.addItem(Items.KEXCHOKLAD);
+
+        //then
+        Mockito.verify(pricingService).priceForItem(Items.KEXCHOKLAD.getItemId());
+    }
 
 }
