@@ -1,0 +1,38 @@
+TDD 101 för APP 20.1, den 31 januari 2020 kl 17:00
+--------------------------------------------------
+
+* Agenda med ansvarig lärare (Initialer). Komplettera med hålltider
+    Från readme.md:
+        * Del 1 (AF): Intro.
+            Förväntningar
+            Vad är TDD?
+            Varför
+            JUnit exempel
+            Mobbprogrammering
+        * Övning 1
+            Varukorg
+        * Mini-retro
+        * Paus
+        * Del 2 (HS): Verktyg och mock
+            Testkörare
+            Assertions
+            Mock
+            Mockito exempel
+        * Övning 2
+            Introducera kollaboratör
+        * Del 3 (AF): Återblick
+            Fler verktyg
+            Generellt om testning
+
+Att göra (Ansvarig):
+* PowerPoint istället för html. (MH)
+
+Frågor:
+* Tidig demo, tidigarelägga JUnit exempel.
+* Mock och dependency injection på svenska: attrapp och beroendeinjektion (dubbelgångare, kollaboratör)
+* Uppdatera Gradle-version.
+
+
+Klart:
+* Hur delar vi upp kursen mellan lärare.
+* Introducera mock och dependency injection med superenkel objektorientering
