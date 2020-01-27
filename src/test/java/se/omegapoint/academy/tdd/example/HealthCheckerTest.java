@@ -11,7 +11,7 @@ import org.junit.Test;
 public class HealthCheckerTest {
 
     @Test
-    public void healthy_service_should_be_checked_true() {
+    public void check_healthy_service_should_return_true() {
 
         // Given
         HttpClient httpClient = new HttpClient();
