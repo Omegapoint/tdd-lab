@@ -38,3 +38,8 @@ Klart:
 * PowerPoint istället för html. (MH)
 * Hur delar vi upp kursen mellan lärare.
 * Introducera mock och dependency injection med superenkel objektorientering
+
+Retro:
+ * Fusklappar med färdiga lösningar. T ex assertEquals på listor.
+ * Tydliggöra kraven. Speciellt listan.
+ * Items. Ska vi ha med dem eller inte?
