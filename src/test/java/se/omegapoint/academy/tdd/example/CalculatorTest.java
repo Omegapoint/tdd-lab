@@ -14,7 +14,7 @@ public class CalculatorTest {
 
     @Before
     public void setupCalculator() {
-        Calculator = new Calculator();
+        calculator = new Calculator();
     }
 
     @Test
@@ -24,7 +24,7 @@ public class CalculatorTest {
         final int y = 1;
 
         // when
-        final sum = calculator.Add(x, y;)
+        final int sum = calculator.Add(x, y);
 
         // then
         assertThat(sum).isEqualTo(2);
