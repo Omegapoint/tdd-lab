@@ -6,7 +6,8 @@ TDD 101 för APP 20.1, den 31 januari 2020 kl 13:00
         * 13:00. Del 1 (AF): Intro.
             Förväntningar
             Vad är TDD?
-            Varför
+            Varför TDD?
+            Lite bakgrund
             JUnit exempel
             Mobbprogrammering
         * Övning 1
@@ -22,7 +23,8 @@ TDD 101 för APP 20.1, den 31 januari 2020 kl 13:00
             Introducera mock
         * Del 3 (AF): Återblick
             Fler verktyg
-            Generellt om testning
+            Generellt om testning (TDD, Unit- Integration- Smoke...)
+            Förväntningarna?
 
 Att göra (Ansvarig):
 

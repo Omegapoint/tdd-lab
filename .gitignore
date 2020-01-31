@@ -7,3 +7,8 @@ out/
 .gradle/
 build/
 
+# VS Code IDE
+.vscode/
+.settings/
+
+.project
