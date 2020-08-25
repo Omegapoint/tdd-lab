@@ -1,0 +1,38 @@
+TDD 101 för APP 20.2, den 11 september 2020 kl 08:30
+----------------------------------------------------
+
+* Agenda med ansvarig lärare (Initialer).
+    Från readme.md:
+        * 08:30. Del 1: Intro.
+            Förväntningar. MH
+            Vad är TDD? HS
+            Varför TDD? HS
+            Lite bakgrund HS
+            JUnit exempel HS
+            Mobbprogrammering MH
+        * Övning 1
+            Varukorg
+        * Mini-retro
+        * 10:00. Paus 15 min
+        * 10:15. Del 2 (HS): Verktyg och mock
+            Testkörare
+            Assertions
+            Mock
+            Mockito exempel
+        * Övning 2
+            Introducera mock
+        * Del 3 (MH): Återblick
+            Fler verktyg
+            Generellt om testning (TDD, Unit- Integration- Smoke...)
+            Förväntningarna?
+
+Att göra (Ansvarig):
+* Uppdatera Gradle-version, JUnit-version, Java. (HS)
+* Gå igenom och ev. uppdatera presentationen. (MH,HS)
+* Var lite mer deltagande i mobbprogrammering om problem uppstår. T ex jämför listor.
+
+Frågor:
+
+Klart:
+
+Retro:
