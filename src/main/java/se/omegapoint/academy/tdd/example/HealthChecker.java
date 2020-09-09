@@ -11,6 +11,6 @@ public class HealthChecker {
     }
 
     public boolean isHealthy() {
-        return "OK".equals(httpClient.get(URI.create("/healthcheck")));
+        return "OK".equals(httpClient.get(URI.create("http://service-checker.internal/my-service/healthcheck")));
     }
 }
