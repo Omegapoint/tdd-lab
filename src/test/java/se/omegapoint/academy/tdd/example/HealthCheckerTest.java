@@ -18,8 +18,9 @@ public class HealthCheckerTest {
         HealthChecker healthChecker = new HealthChecker(httpClient);
 
         // When
+        boolean healthyService = healthChecker.isHealthy();
 
         // Then
-        Assert.assertTrue(healthChecker.isHealthy());
+        Assert.assertTrue(healthyService);
     }
 }
