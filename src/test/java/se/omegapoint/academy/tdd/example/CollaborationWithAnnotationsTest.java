@@ -43,6 +43,6 @@ public class CollaborationWithAnnotationsTest {
         healthChecker.isHealthy();
 
         // then
-        verify(httpClient).get(URI.create("/healthcheck"));
+        verify(httpClient).get(URI.create("http://service-checker.internal/my-service/healthcheck"));
     }
 }
