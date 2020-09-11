@@ -14,7 +14,8 @@ public class HealthCheckerTest {
     public void check_healthy_service_should_return_true() {
 
         // Given
-        HttpClient httpClient = new HttpClient();
+        //HttpClient httpClient = new HttpClient();
+        HttpClient httpClient = new HttpClientMock();
         HealthChecker healthChecker = new HealthChecker(httpClient);
 
         // When
