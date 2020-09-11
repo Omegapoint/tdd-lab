@@ -35,3 +35,6 @@ Frågor:
 Klart:
 
 Retro:
+Kanske ska se över att uppdatera till JUnit 5.
+Listan av verktyg bör ses över. Om den fortfarande är aktuell.
+
