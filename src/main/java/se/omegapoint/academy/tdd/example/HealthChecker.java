@@ -18,6 +18,9 @@ public class HealthChecker {
         String json = httpClient.get(URI.create("http://service-checker.internal/my-service/healthcheck"));
 
         // Parse json:
+        // {
+        // "status": 0
+        // }
         JSONObject jsonObject = new JSONObject(json);
         int statusCode = jsonObject.getInt("status");
 
