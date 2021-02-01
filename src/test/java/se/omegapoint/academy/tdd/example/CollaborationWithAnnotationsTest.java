@@ -25,15 +25,16 @@ public class CollaborationWithAnnotationsTest {
     @Before
     public void setupHealthChecker() {
         healthChecker = new HealthChecker(httpClient);
+        when(httpClient.get(any())).thenReturn("{\"status\": 0}");
     }
 
     @Test
     public void isHealthy_should_return_true() {
-        // given
-        when(httpClient.get(any())).thenReturn("OK");
-
         // when
-        assertThat(healthChecker.isHealthy()).isTrue();
+        boolean healthy = healthChecker.isHealthy();
+
+        // then
+        assertThat(healthy).isTrue();
     }
 
 

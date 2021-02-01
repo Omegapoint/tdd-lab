@@ -1,6 +1,7 @@
 package se.omegapoint.academy.tdd.example;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,7 @@ import org.junit.Test;
  */
 public class HealthCheckerTest {
 
+    @Ignore
     @Test
     public void check_healthy_service_should_return_true() {
 

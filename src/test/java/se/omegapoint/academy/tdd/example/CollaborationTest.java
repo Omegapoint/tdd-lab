@@ -1,6 +1,7 @@
 package se.omegapoint.academy.tdd.example;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.net.URI;
@@ -19,9 +20,10 @@ public class CollaborationTest {
 
     @Before
     public void setupCollaborator() {
-        when(httpClient.get(any())).thenReturn("OK");
+        when(httpClient.get(any())).thenReturn("{\"status\":0}");
     }
 
+    @Ignore
     @Test
     public void testHealthCheck() {
         final HealthChecker healthChecker = new HealthChecker(new HttpClient());
@@ -31,15 +33,15 @@ public class CollaborationTest {
 
     @Test
     public void isHealthy_should_return_true() {
-        // given
-        when(httpClient.get(any())).thenReturn("OK");
-
         // when
-        assertThat(healthChecker.isHealthy()).isTrue();
+        boolean healthy = healthChecker.isHealthy();
+
+        // then
+        assertThat(healthy).isTrue();
     }
 
     @Test
-    public void isHealthy_should_get_healthcheck() {
+    public void isHealthy_should_get_health_check() {
         // when
         healthChecker.isHealthy();
 
