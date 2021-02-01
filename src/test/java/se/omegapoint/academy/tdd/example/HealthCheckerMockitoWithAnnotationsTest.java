@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CollaborationWithAnnotationsTest {
+public class HealthCheckerMockitoWithAnnotationsTest {
 
     @Mock
     private HttpClient httpClient;
