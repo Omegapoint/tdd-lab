@@ -17,14 +17,20 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void canShowNumberOfItems(){
+    public void canGetEmptyCart(){
         ShoppingCart shoppingCart = new ShoppingCart();
         int numberOfItems = shoppingCart.getNumberOfItems();
         Assert.assertEquals(0, numberOfItems);
-
-
     }
 
+    @Test
+    public void canGetNonEmptyCart(){
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        shoppingCart.addItem(Items.BILAR);
+        int numberOfItems = shoppingCart.getNumberOfItems();
+        Assert.assertEquals(1, numberOfItems);
+    }
 
 
     //public void numberOfItemsIsCorrect
