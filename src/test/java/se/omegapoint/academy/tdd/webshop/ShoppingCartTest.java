@@ -68,11 +68,27 @@ public class ShoppingCartTest {
     public void checkShoppingCartPriceIsCorrect(){
         //Given
         PricingService pricingService = Mockito.mock(PricingService.class);
-        Mockito.when(pricingService.priceForItem(any())).thenReturn(BigDecimal.valueOf(14));
+        Mockito.when(pricingService.priceForItem(Items.KEXCHOKLAD.getItemId())).thenReturn(BigDecimal.valueOf(14));
         ShoppingCart shoppingCart = new ShoppingCart(pricingService);
         //When
         shoppingCart.addItem(Items.KEXCHOKLAD);
         //Then
         Assert.assertEquals(BigDecimal.valueOf(14), shoppingCart.returnPrice());
+    }
+
+    @Test
+    public void checkShoppingCartPriceIsCorrectWithTwoItems(){
+        //Given
+        PricingService pricingService = Mockito.mock(PricingService.class);
+        Mockito.when(pricingService.priceForItem(Items.KEXCHOKLAD.getItemId())).thenReturn(BigDecimal.valueOf(14));
+        Mockito.when(pricingService.priceForItem(Items.JOLT.getItemId())).thenReturn(BigDecimal.valueOf(10));
+        ShoppingCart shoppingCart = new ShoppingCart(pricingService);
+        //When
+        shoppingCart.addItem(Items.KEXCHOKLAD);
+        shoppingCart.addItem(Items.JOLT);
+        //Then
+        Assert.assertEquals(BigDecimal.valueOf(24), shoppingCart.returnPrice());
+        Mockito.verify(pricingService).priceForItem(Items.KEXCHOKLAD.getItemId());
+
     }
 }
