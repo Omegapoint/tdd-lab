@@ -1,9 +1,15 @@
 package se.omegapoint.academy.tdd.webshop;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 import java.math.BigDecimal;
+
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.when;
 
 /**
  * ShoppingCartTest - tests for ShoppingCart
@@ -11,9 +17,17 @@ import java.math.BigDecimal;
  * Author: Henrik Stensson, henrik.stensson@omegapoint.se
  */
 public class ShoppingCartTest {
+
+    private PricingService pricingService;
+
+    @Before
+    public void Before(){
+        pricingService = new PriceDatabase();
+    }
+
     @Test
     public void testCreate(){
-        ShoppingCart shoppingCart = new ShoppingCart();
+        ShoppingCart shoppingCart = new ShoppingCart(pricingService);
         Assert.assertNotNull(shoppingCart);
 
     }
@@ -21,7 +35,7 @@ public class ShoppingCartTest {
     @Test
     public void giveBackZero(){
         //Given
-        ShoppingCart shoppingCart = new ShoppingCart();
+        ShoppingCart shoppingCart = new ShoppingCart(pricingService);
 
         //When
 
@@ -32,7 +46,7 @@ public class ShoppingCartTest {
     @Test
     public void checkThatReturnNumberOfItemsIsOneAfterAddingOne(){
         //Given
-        ShoppingCart shoppingCart = new ShoppingCart();
+        ShoppingCart shoppingCart = new ShoppingCart(pricingService);
         //When
         shoppingCart.addItem(Items.KEXCHOKLAD);
         //Then
@@ -42,17 +56,20 @@ public class ShoppingCartTest {
     @Test
     public void checkShoppingCartPriceIsZeroWhenNoItems(){
         //Given
-        ShoppingCart shoppingCart = new ShoppingCart();
+        ShoppingCart shoppingCart = new ShoppingCart(pricingService);
         //When
 
         //Then
         Assert.assertEquals(BigDecimal.ZERO, shoppingCart.returnPrice());
     }
 
+
     @Test
     public void checkShoppingCartPriceIsCorrect(){
         //Given
-        ShoppingCart shoppingCart = new ShoppingCart();
+        PricingService pricingService = Mockito.mock(PricingService.class);
+        Mockito.when(pricingService.priceForItem(any())).thenReturn(BigDecimal.valueOf(14));
+        ShoppingCart shoppingCart = new ShoppingCart(pricingService);
         //When
         shoppingCart.addItem(Items.KEXCHOKLAD);
         //Then
