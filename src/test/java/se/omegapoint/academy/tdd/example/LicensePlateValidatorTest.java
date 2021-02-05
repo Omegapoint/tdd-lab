@@ -1,5 +1,6 @@
 package se.omegapoint.academy.tdd.example;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -7,10 +8,12 @@ import org.junit.Test;
  * Created: 2021-02-03
  * Author: Henrik Stensson, henrik.stensson@omegapoint.se
  */
-public class LicensePlateValidatorTest {
+public class LicensePlateValidatorTest<LicensePlateValidator> {
 
     @Test
     public void testCreate(){
+        //LicensePlateValidator licensePlateValidator = new LicensePlateValidator();
+        // Assert.assertNotNull(licensePlateValidator);
 
     }
 
