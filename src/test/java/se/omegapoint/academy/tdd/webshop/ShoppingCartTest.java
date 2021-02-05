@@ -2,6 +2,7 @@ package se.omegapoint.academy.tdd.webshop;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 
@@ -48,6 +49,27 @@ public class ShoppingCartTest {
 
 
     }
+    @Test
+    public void checkTotalPrice(){
+        PricingService mockDatabase = Mockito.mock(PriceDatabase.class);
+        Mockito.when(mockDatabase.priceForItem(Mockito.anyLong()))
+                .thenReturn(Items.BILAR.getPrice());
 
+        //Mockito.when(mockDatabase.priceForItem(Items.JOLT.getItemId()))
+        //        .thenReturn(Items.JOLT.getPrice());
+
+
+        ShoppingCart shoppingCart = new ShoppingCart(mockDatabase);
+
+        shoppingCart.addItem(Items.BILAR);
+
+        BigDecimal totalPrice = shoppingCart.getTotalPrice();
+
+        Mockito.verify(mockDatabase).priceForItem(Items.BILAR.getItemId());
+
+        Assert.assertEquals(Items.BILAR.getPrice(), totalPrice);
+
+
+    }
 
 }
