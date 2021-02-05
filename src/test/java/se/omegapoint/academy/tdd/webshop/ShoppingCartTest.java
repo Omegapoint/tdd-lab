@@ -3,6 +3,8 @@ package se.omegapoint.academy.tdd.webshop;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 /**
  * ShoppingCartTest - tests for ShoppingCart
  * Created: 2021-02-03
@@ -32,6 +34,20 @@ public class ShoppingCartTest {
         Assert.assertEquals(1, numberOfItems);
     }
 
-
     //public void numberOfItemsIsCorrect
+
+    @Test
+    public void isPriceZero(){
+        ShoppingCart shoppingCart = new ShoppingCart();
+
+        shoppingCart.addItem(Items.BILAR);
+
+        BigDecimal totalPrice = shoppingCart.getTotalPrice();
+
+        Assert.assertEquals(Items.BILAR.getPrice(), totalPrice);
+
+
+    }
+
+
 }
