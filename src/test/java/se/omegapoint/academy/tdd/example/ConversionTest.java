@@ -1,7 +1,9 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -12,7 +14,7 @@ public class ConversionTest {
 
     private LowerCaseConverter lowerCaseConverter;
 
-    @Before
+    @BeforeEach
     public void setupLowerCaseConverter() {
         lowerCaseConverter = new LowerCaseConverter();
     }

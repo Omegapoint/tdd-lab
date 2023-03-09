@@ -7,6 +7,6 @@ import static java.util.stream.Collectors.toList;
 public class LowerCaseConverter {
 
     public Collection<String> toLowerCase(Collection<String> strings) {
-        return strings.stream().map(item -> item.toLowerCase()).collect(toList());
+        return strings.stream().map(String::toLowerCase).toList();
     }
 }

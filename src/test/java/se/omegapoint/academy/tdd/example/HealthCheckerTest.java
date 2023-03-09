@@ -1,8 +1,9 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 /**
  * HealthCheckerTest - tests for health checker
@@ -11,7 +12,7 @@ import org.junit.Test;
  */
 public class HealthCheckerTest {
 
-    @Ignore
+    @Disabled
     @Test
     public void check_healthy_service_should_return_true() {
 
@@ -23,6 +24,6 @@ public class HealthCheckerTest {
         boolean healthyService = healthChecker.isHealthy();
 
         // Then
-        Assert.assertTrue(healthyService);
+        Assertions.assertTrue(healthyService);
     }
 }

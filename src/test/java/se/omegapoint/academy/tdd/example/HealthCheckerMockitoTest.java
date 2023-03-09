@@ -1,8 +1,9 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.net.URI;
 
@@ -18,16 +19,16 @@ public class HealthCheckerMockitoTest {
 
     private final HealthChecker healthChecker = new HealthChecker(httpClient);
 
-    @Before
+    @BeforeEach
     public void setupCollaborator() {
         when(httpClient.get(any())).thenReturn("{\"status\":0}");
     }
 
-    @Ignore
+    @Disabled
     @Test
     public void testHealthCheck() {
         final HealthChecker healthChecker = new HealthChecker(new HttpClient());
-        
+
         assertThat(healthChecker.isHealthy()).isTrue();
     }
 

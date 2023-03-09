@@ -1,10 +1,10 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.MockitoAnnotations;
 
 import java.net.URI;
 
@@ -13,7 +13,6 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
 public class HealthCheckerMockitoWithAnnotationsTest {
 
     @Mock
@@ -22,8 +21,9 @@ public class HealthCheckerMockitoWithAnnotationsTest {
     private HealthChecker healthChecker;
 
 
-    @Before
+    @BeforeEach
     public void setupHealthChecker() {
+        MockitoAnnotations.initMocks(this);
         healthChecker = new HealthChecker(httpClient);
         when(httpClient.get(any())).thenReturn("{\"status\": 0}");
     }

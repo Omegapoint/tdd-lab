@@ -1,35 +1,25 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
-import java.util.Arrays;
-import java.util.Collection;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(Parameterized.class)
 public class ParameterizedTest {
-
-    @Parameterized.Parameter(0)
-    public int first;
-    @Parameterized.Parameter(1)
-    public int second;
-    @Parameterized.Parameter(2)
-    public int sum;
-
-    @Parameterized.Parameters
-    public static Collection<Object[]> testData() {
-        return Arrays.asList(new Object[][]{
-                {1, 2, 3},
-                {3, 4, 7},
-                {7, 8, 15}
-        });
+    public static Stream<Arguments> testData() {
+        return Stream.of(
+                Arguments.of(1, 2, 3),
+                Arguments.of(3, 4, 7),
+                Arguments.of(7, 8, 15)
+        );
     }
 
-    @Test
-    public void sumsCorrectly() {
+    @org.junit.jupiter.params.ParameterizedTest
+    @MethodSource("testData")
+    public void sumsCorrectly(int first, int second, int sum) {
         assertThat(first + second).isEqualTo(sum);
     }
 

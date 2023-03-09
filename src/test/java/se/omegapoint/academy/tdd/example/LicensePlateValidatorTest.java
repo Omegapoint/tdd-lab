@@ -1,6 +1,7 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * LicensePlateValidatorTest - tests for LicensePlateValidator

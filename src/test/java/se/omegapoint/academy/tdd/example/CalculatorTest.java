@@ -1,10 +1,7 @@
 package se.omegapoint.academy.tdd.example;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.Collection;
-import java.util.Collections;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +9,7 @@ public class CalculatorTest {
 
     private Calculator calculator;
 
-    @Before
+    @BeforeEach
     public void setupCalculator() {
         calculator = new Calculator();
     }
