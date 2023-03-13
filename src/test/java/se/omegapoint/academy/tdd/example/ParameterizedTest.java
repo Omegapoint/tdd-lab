@@ -13,7 +13,8 @@ public class ParameterizedTest {
         return Stream.of(
                 Arguments.of(1, 2, 3),
                 Arguments.of(3, 4, 7),
-                Arguments.of(7, 8, 15)
+                Arguments.of(7, 8, 15),
+                Arguments.of(0, 0, 0)
         );
     }
 
