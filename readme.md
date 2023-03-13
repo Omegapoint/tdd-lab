@@ -2,6 +2,28 @@
 
 Denna kodbas utgör basen i labbarna i TDD-kursen. Innehållet är avsiktligt knapphändigt då respektive deltagare förväntas utöka koden i varje labbmoment.
 
+## Förkrav - Detta behöver du inför kurstillfället
+
+### Editor
+
+__För att kunna redigera och köra koden behövs en editor. Vi föreslår IntelliJ.__
+
+- [IntelliJ](https://www.jetbrains.com/idea/download/)
+- [Eclipse](https://www.eclipse.org/ide/)
+- [VS Code](https://code.visualstudio.com/download)
+
+### JDK Java Development Kit Version 17
+
+#### Mac
+
+- [Brew](https://formulae.brew.sh/formula/openjdk@17) (Mac- och unix-användare)
+  - `brew install openjdk@17`
+- [Ladda ned från Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
+#### Windows
+
+TODO: Uppdatera README med windows. Lämna gärna in en PR med förslag på vad som kan stå här.
+
 ## Kursprogram
 
 Ungefär såhär brukar vi lägga upp kursen.
