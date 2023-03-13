@@ -38,6 +38,10 @@ Denna kodbas utgör basen i labbarna i TDD-kursen. Innehållet är avsiktligt kn
 
 ## Förkrav - Detta behöver du inför kurstillfället
 
+- Editor
+- Git
+- JDK17
+
 ### Editor
 
 _För att kunna redigera och köra koden behövs en editor. Vi föreslår IntelliJ._
@@ -60,7 +64,10 @@ _För att kunna redigera och köra koden behövs en editor. Vi föreslår Intell
 
 #### Windows
 
-TODO: Uppdatera README med windows. Lämna gärna in en PR med förslag på vad som kan stå här.
+- [Ladda ned från Oracle](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
+TODO: Lägg till instruktioner om installationen.
+(Windows-användare som läser kursen får gärna lägga upp en PR med instruktioner.)
 
 ### Öppna och testkör koden
 
