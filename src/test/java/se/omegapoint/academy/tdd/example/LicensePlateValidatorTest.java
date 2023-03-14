@@ -94,9 +94,9 @@ public class LicensePlateValidatorTest {
         final PrivatePlateDatabase privatePlateDatabase = mock(PrivatePlateDatabase.class);
         licensePlateValidator = new LicensePlateValidator(privatePlateDatabase);
 
-        BDDMockito.given(privatePlateDatabase.lookup("FORJOY")).willReturn(true);
+        BDDMockito.given(privatePlateDatabase.lookup("FORD")).willReturn(true);
 
-        assertTrue(licensePlateValidator.validateWithCustom("FORJOY"));
+        assertTrue(licensePlateValidator.validateWithCustom("FORD"));
 
     }
 }

@@ -84,17 +84,20 @@ public class LicensePlateValidator {
     }
 
     public boolean validateWithCustom(String licensePlate) {
-        if (licensePlate.length() != 6) return false;
-
-        try {
-            List<String> illegalWords = Files.readAllLines(Path.of("src/main/resources/illegalWords.txt"));
-            if (illegalWords.contains(licensePlate.substring(0, 3))) {
-                return false;
+        if (licensePlate.length() == 6) {
+            try {
+                List<String> illegalWords = Files.readAllLines(Path.of("src/main/resources/illegalWords.txt"));
+                if (illegalWords.contains(licensePlate.substring(0, 3))) {
+                    return false;
+                }
+            } catch (Exception e) {
+                // handle
             }
-        } catch (Exception e) {
-            // handle
+        }
+        if (licensePlate.length() >= 2 && licensePlate.length() <= 7) {
+            return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-H-J-NPR-UW-Z1-9]") || privatePlateDatabase.lookup(licensePlate);
         }
 
-        return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-H-J-NPR-UW-Z1-9]") || privatePlateDatabase.lookup(licensePlate);
+        return false;
     }
 }
