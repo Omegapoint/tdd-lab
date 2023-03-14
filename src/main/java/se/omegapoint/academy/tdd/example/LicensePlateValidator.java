@@ -5,6 +5,15 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class LicensePlateValidator {
+    PrivatePlateDatabase privatePlateDatabase;
+    public LicensePlateValidator(PrivatePlateDatabase privatePlateDatabase){
+        this.privatePlateDatabase = privatePlateDatabase;
+    }
+
+    public LicensePlateValidator() {
+    }
+
+
     public boolean validate1(String licensePlate) {
         return true;
     }
@@ -72,5 +81,20 @@ public class LicensePlateValidator {
         }
 
         return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-H-J-NPR-UW-Z1-9]");
+    }
+
+    public boolean validateWithCustom(String licensePlate) {
+        if (licensePlate.length() != 6) return false;
+
+        try {
+            List<String> illegalWords = Files.readAllLines(Path.of("src/main/resources/illegalWords.txt"));
+            if (illegalWords.contains(licensePlate.substring(0, 3))) {
+                return false;
+            }
+        } catch (Exception e) {
+            // handle
+        }
+
+        return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-H-J-NPR-UW-Z1-9]") || privatePlateDatabase.lookup(licensePlate);
     }
 }

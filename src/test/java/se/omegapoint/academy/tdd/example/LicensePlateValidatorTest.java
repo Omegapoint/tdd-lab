@@ -2,23 +2,26 @@ package se.omegapoint.academy.tdd.example;
 
 
 import org.junit.jupiter.api.Test;
+import org.mockito.BDDMockito;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 /**
  * LicensePlateValidatorTest - tests for LicensePlateValidator
  * Created: 2021-02-03
  * Updated: 2023-03-13
  * Authors:
- *  Henrik Stensson
- *  Carl Rosengren
+ * Henrik Stensson
+ * Carl Rosengren
  */
 public class LicensePlateValidatorTest {
     LicensePlateValidator licensePlateValidator = new LicensePlateValidator();
 
     @Test
-    public void three_letters_three_digits_should_be_valid() {
+
+    public void givenThreeLettersThreeDigits_shouldBeValid() {
         // given
         licensePlateValidator = new LicensePlateValidator();
         String validLicensePlate = "ABC123";
@@ -31,7 +34,7 @@ public class LicensePlateValidatorTest {
     }
 
     @Test
-    public void six_letters_should_be_invalid() {
+    public void givenSixLetters_shouldBeInvalid() {
         // given
         licensePlateValidator = new LicensePlateValidator();
         String invalidLicensePlate = "ABCDEF";
@@ -44,18 +47,18 @@ public class LicensePlateValidatorTest {
     }
 
     @Test
-    public void three_letters_two_digits_one_letter_should_be_valid() {
+    public void givenThreeLettersTwoDigitsOneLetter_shouldBeValid() {
         assertTrue(licensePlateValidator.validate("ABC12A"));
     }
 
     @Test
-    public void too_short_or_long_plate_should_be_invalid() {
+    public void givenTooShortOrLongPlate_shouldBeInvalid() {
         assertFalse(licensePlateValidator.validate("A"));
         assertFalse(licensePlateValidator.validate("AAAAAAAAAAAAA"));
     }
 
     @Test
-    public void illegal_characters_should_be_invalid() {
+    public void givenIllegalCharacters_shouldBeInvalid() {
         /*
         I - används ej, förväxlingsbar med J (handstil/uttal) och L (gement: l)
         O - Används inte som sista bokstav om det är 2 siffror och en fjärde bokstav, förväxlingarbar med 0
@@ -71,7 +74,29 @@ public class LicensePlateValidatorTest {
     }
 
     @Test
-    public void illegal_words_should_be_invalid() {
+    public void givenIllegalWords_shouldBeInvalid() {
         assertFalse(licensePlateValidator.validate("OND123"));
+    }
+
+    @Test
+    public void givenInvalidPlateAndNotInDatabase_shouldBeInvalid() {
+        // given
+        final PrivatePlateDatabase privatePlateDatabase = mock(PrivatePlateDatabase.class);
+        licensePlateValidator = new LicensePlateValidator(privatePlateDatabase);
+
+        BDDMockito.given(privatePlateDatabase.lookup("TRUMP")).willReturn(false);
+
+        assertFalse(licensePlateValidator.validateWithCustom("TRUMP"));
+    }
+
+    @Test
+    public void givenInvalidPlateButIsInDatabase_shouldBeValid() {
+        final PrivatePlateDatabase privatePlateDatabase = mock(PrivatePlateDatabase.class);
+        licensePlateValidator = new LicensePlateValidator(privatePlateDatabase);
+
+        BDDMockito.given(privatePlateDatabase.lookup("FORJOY")).willReturn(true);
+
+        assertTrue(licensePlateValidator.validateWithCustom("FORJOY"));
+
     }
 }
