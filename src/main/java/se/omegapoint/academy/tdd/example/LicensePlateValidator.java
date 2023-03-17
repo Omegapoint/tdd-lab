@@ -65,7 +65,7 @@ public class LicensePlateValidator {
         // A-H          J-P         R-U      W-Z
         // A-HJ-PR-UW-Z
         // Notera skillnaden i sista reguljära uttrycket (med O)
-        return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-H-J-NPR-UW-Z1-9]");
+        return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-HJ-NPR-UW-Z1-9]");
     }
 
     public boolean validate(String licensePlate) {
@@ -80,7 +80,7 @@ public class LicensePlateValidator {
             // handle
         }
 
-        return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-H-J-NPR-UW-Z1-9]");
+        return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-HJ-NPR-UW-Z1-9]");
     }
 
     public boolean validateWithCustom(String licensePlate) {
@@ -95,7 +95,7 @@ public class LicensePlateValidator {
             }
         }
         if (licensePlate.length() >= 2 && licensePlate.length() <= 7) {
-            return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-H-J-NPR-UW-Z1-9]") || privatePlateDatabase.lookup(licensePlate);
+            return licensePlate.matches("[A-HJ-PR-UW-Z]{3}[0-9]{2}[A-HJ-NPR-UW-Z1-9]") || privatePlateDatabase.lookup(licensePlate);
         }
 
         return false;

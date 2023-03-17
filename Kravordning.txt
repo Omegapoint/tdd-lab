@@ -9,8 +9,7 @@ Andra labbomgången
 4. Verifiera att prisuppslag sker!
 
 Extrauppgifter
-6. Kan ni använda Streams istället för for-loopar?
-7. Visa priset med och utan moms
-8. Rabatt, "köp 3 betala för 2"
-
-
+5. Kan ni använda Streams istället för for-loopar? Hur förbättrar det kodkvaliteten? Blir det läsbart för nästa person?
+6. Visa priset med och utan moms
+7. Rabatt, "köp 3 betala för 2"
+8. Mocka kvittoskrivaren

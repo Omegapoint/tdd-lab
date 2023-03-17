@@ -8,19 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
-/**
- * LicensePlateValidatorTest - tests for LicensePlateValidator
- * Created: 2021-02-03
- * Updated: 2023-03-13
- * Authors:
- * Henrik Stensson
- * Carl Rosengren
- */
 public class LicensePlateValidatorTest {
     LicensePlateValidator licensePlateValidator = new LicensePlateValidator();
 
     @Test
-
     public void givenThreeLettersThreeDigits_shouldBeValid() {
         // given
         licensePlateValidator = new LicensePlateValidator();
