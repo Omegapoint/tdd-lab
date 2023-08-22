@@ -15,6 +15,7 @@ Denna kodbas utgör basen i labbarna i TDD-kursen. Innehållet är avsiktligt kn
     - [Öppna och testkör koden](#öppna-och-testkör-koden)
       - [SSH Adding SSH keys to your github account](#ssh-adding-ssh-keys-to-your-github-account)
       - [https](#https)
+  - [Lab-instruktioner](#lab-instruktioner)
   - [Referenser - för den nyfikne](#referenser---för-den-nyfikne)
 
 ## Förkrav - Detta behöver du inför kurstillfället
@@ -67,6 +68,12 @@ TODO: Lägg till instruktioner om installationen.
 I IntelliJ kan du högerklicka på filen `CalculatorTest` under `src/test/java/se.omegapoint.academy.tdd/example/` och tryck `Run 'CalculatorTest'`
 
 Testet ska då gå igenom. Då är allt uppsatt för att du ska kunna påbörja kursen utan några vidare installationer, sen är det bara att skriva kod.
+
+## Lab-instruktioner
+
+Lab-instruktionerna hittar du i presentationsformat i filen [TDD-Presentation-2.0.key](TDD-Presentation-2.0.key). Ladda ner den och följ instruktionerna för att genomföra labben på egen hand. [Kravordning.txt](Kravordning.txt) innehåller i vilken ordning du får dina krav från din produktägare.
+
+Kan du inte läsa .key formatet kan du köra filen genom en KeyNote -> PowerPoint formatterare online.
 
 ## Referenser - för den nyfikne
 
