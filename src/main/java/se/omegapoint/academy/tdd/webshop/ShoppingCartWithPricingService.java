@@ -9,20 +9,22 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toUnmodifiableList;
 
-public class ShoppingCart {
+public class ShoppingCartWithPricingService {
     private final List<Item> items;
+    private final PricingService pricingService;
 
-    public ShoppingCart() {
-        this(List.of());
+    public ShoppingCartWithPricingService(final PricingService pricingService) {
+        this(List.of(), pricingService);
     }
 
-    public ShoppingCart(final List<Item> items) {
+    public ShoppingCartWithPricingService(final List<Item> items, final PricingService pricingService) {
         this.items = items;
+        this.pricingService = pricingService;
     }
 
-    public ShoppingCart addItem(final Item itemToAdd) {
+    public ShoppingCartWithPricingService addItem(final Item itemToAdd) {
         return Stream.concat(items.stream(), Stream.of(itemToAdd))
-                .collect(collectingAndThen(toUnmodifiableList(), ShoppingCart::new));
+                .collect(collectingAndThen(toUnmodifiableList(), items1 -> new ShoppingCartWithPricingService(items1, pricingService)));
     }
 
     public int numberOfItems() {
@@ -31,7 +33,7 @@ public class ShoppingCart {
 
     public double priceOfCart() {
         return items.stream()
-                .map(Item::getPrice)
+                .map(item -> pricingService.priceForItem(item.getItemId()))
                 .mapToLong(BigDecimal::longValue)
                 .sum();
     }
